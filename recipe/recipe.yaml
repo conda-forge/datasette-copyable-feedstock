@@ -3,18 +3,18 @@ schema_version: 1
 
 context:
   name: datasette-copyable
-  version: "0.3.2"
+  version: "0.3.3"
 
 package:
   name: ${{ name|lower }}
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/datasette-copyable-${{ version }}.tar.gz
-  sha256: c0eacfbb14fd255a903f7ee858bea51cae48e7ba9668a38acebeaaecc82db0b4
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
+  sha256: 579a85963015a5b7f87b6cabcd63ce401065ee83f2ab5b34fe1c1515191167cf
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
